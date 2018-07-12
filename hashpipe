@@ -8,7 +8,7 @@ parser = argparse.ArgumentParser(
 parser.add_argument('-o', dest='filename', required=True,
     help='The file where the hash is written to')
 parser.add_argument('-a', dest='algorithm', default='sha256',
-    choices=hashlib.algorithms_available,
+    choices=['sha256', 'md5', 'sha1', 'sha512', 'sha224', 'sha384'],
     help='The hash alogrtithm to be used, default sha256')
 parser.add_argument('-b', dest='buffsize', default=32768, type=int,
     help='Set the read buffer')

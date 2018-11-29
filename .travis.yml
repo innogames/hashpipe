@@ -1,0 +1,26 @@
+os: osx
+osx_image: xcode9.3
+language: node_js
+node_js: '8'
+env:
+- ELECTRON_CACHE=$HOME/.cache/electron ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
+
+cache:
+  yarn: true
+  directories:
+  - node_modules
+  - "$HOME/.cache/electron"
+  - "$HOME/.cache/electron-builder"
+
+install: yarn
+
+script:
+- yarn test
+- yarn run dist
+
+before_cache:
+- rm -rf $HOME/.cache/electron-builder/wine
+
+deploy:
+  provider: releases
+  api_key: 'Thank you for your interest, we are hiring https://www.innogames.com/de/innogames-karriere/detail/job/senior-security-engineer/'
